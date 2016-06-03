@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sort Strings</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+      .list_container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .string_list, .sorted_list {
+        float: left;
+        width: 47%;
+        min-height: 250px;
+        border: 1px solid #ccc;
+        text-align: left;
+        padding: 10px;
+      }
+      .sorted_list {
+        float: right;
+      }
+      .string {
+        padding: 5px 10px;
+        font-size: 13px;
+        outline: 0;
+      }
+      .add, .sort {
+        padding: 8px;
+        border: 0;
+        outline: 0;
+        color: #fff;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .add {
+        background: #f2711c;
+      }
+      .add:hover {
+        background: #f26202;
+      }
+      .sort {
+        background: #21ba45;
+      }
+      .sort:hover {
+        background: #16ab39;
+      }
+    </style>
+  </head>
+  <body style = "text-align: center;">
+    <h1> Sort Strings </h1>
+    <div>
+      <label>Add Strings
+        <input class="string" type="text" value="" placeholder="Enter String">
+      </label>
+      <button class="add">Add String</button>
+      <button class="sort">Sort Strings</button>
+    </div>
+    <div class="list_container">
+      <div class="string_list">String List<ul></ul></div>
+      <div class="sorted_list">Sorted List<ul></ul></div>
+    </div>
+    <script>
+      var input = document.querySelector('.string');
+      var addButton = document.querySelector('.add');
+      var sortButton = document.querySelector('.sort');
+      var result = document.querySelector('.sorted_list');
+      var list = document.querySelector('.string_list');
+      var strings = [];
+      var sortedStrings = [];
+      
+      addButton.onclick = function() {
+        var str = input.value;
+        if (str === "") return false;
+        strings.push({'str': str, 'stlen': str.length});
+        renderString('strings');
+      }
+      
+      sortButton.onclick = function() {
+        sortedStrings = strings.sort(function(a, b) { return a.stlen - b.stlen });
+        renderString('sortedStrings');
+      }
+      
+      function renderString(type) {
+        var stringList = (type === "sortedStrings" ? sortedStrings : strings);
+        var ul = document.createElement('ul');
+        for (var i=0; i<stringList.length; i++) {
+          var li = document.createElement('li');
+          li.textContent = stringList[i].str + ' --> ' + stringList[i].stlen;
+          ul.appendChild(li);
+        }
+
+        if (type === "sortedStrings") {
+          var oldul = result.querySelector('ul');
+          result.replaceChild(ul, oldul);
+        }
+        else {
+          var oldul = list.querySelector('ul');
+          list.replaceChild(ul, oldul);
+        }
+      }
+      
+    </script>
+  </body>
+</html>

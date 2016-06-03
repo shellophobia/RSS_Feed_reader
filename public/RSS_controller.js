@@ -8,6 +8,11 @@ var RSSController = function(app) {
       });
     });
   });
+  
+  app.get('/sortString', function(req, res) {
+    res.render('./sortString');
+  });
+  
 }
 
 module.exports.controller = RSSController;
