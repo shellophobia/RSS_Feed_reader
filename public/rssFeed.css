@@ -50,3 +50,19 @@ a:hover {
   top: 30px;
   right: 30px;
 }
+
+.time-section {
+  width: 80%;
+  text-align: right;
+  margin: 0 auto;
+}
+
+.date-time, .timer {
+  font-size: 18px;
+  color: #ff751a;
+}
+
+.updated-at {
+  font-size: 12px;
+  color: #888;
+}
