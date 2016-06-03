@@ -1,6 +1,4 @@
-var express = require('express'),
-bodyParser = require('body-parser'),
-fs = require('fs');
+var express = require('express');
 
 var app = express();
 
