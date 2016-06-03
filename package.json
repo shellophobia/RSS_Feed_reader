@@ -1,0 +1,25 @@
+{
+  "name": "rss_feed_reader",
+  "version": "1.0.0",
+  "description": "feed reader for rss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shellophobia/RSS_Feed_reader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shellophobia/RSS_Feed_reader/issues"
+  },
+  "homepage": "https://github.com/shellophobia/RSS_Feed_reader#readme",
+  "devDependencies": {
+    "body-parser": "^1.15.1",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "xml2js": "^0.4.16"
+  }
+}

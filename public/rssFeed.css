@@ -1,0 +1,52 @@
+body {
+  background: #e6e6e6;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.post-container {
+  padding: 10px;
+  box-shadow: 0 0 2px 2px #ccc;
+  border: 1px solid #aaa;
+  width: 80%;
+  margin: 10px auto;
+  background: #fff;
+  position: relative;
+}
+
+.post-title {
+  width: 90%;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.post-content table td:last-child {
+  padding: 0 10px;
+}
+
+.post-content td span {
+  display: inline-block;
+  padding-top: 5px;
+}
+
+.post-content td img {
+  padding: 5px;
+  border: 1px solid #ccc;
+  background: #eee;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
