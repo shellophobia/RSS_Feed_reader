@@ -4,7 +4,7 @@ function bindEvents() {
     var close = e.target;
     
     // if the target element is other than hide/show btn then return false
-    if (e.target.getAttribute('class') !== "close") return false;
+    if (e.target.getAttribute('class') !== "close") return;
     
     // if the area is open
     if (close.getAttribute('data-show') == 'true') {
