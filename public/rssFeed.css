@@ -51,10 +51,32 @@ a:hover {
   right: 30px;
 }
 
-.time-section {
-  width: 80%;
-  text-align: right;
+.page-utils {
   margin: 0 auto;
+  width: 80%;
+}
+
+.refresh {
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  background: #bbb;
+}
+
+.refresh span {
+  display: none;
+}
+
+.refresh.loading a {
+  display: none;
+}
+
+.refresh.loading span {
+  display: inline;
+}
+
+.time-section {
+  text-align: right;
 }
 
 .date-time, .timer {
@@ -65,4 +87,34 @@ a:hover {
 .updated-at {
   font-size: 12px;
   color: #888;
+}
+
+@-webkit-keyframes spinnerRotate {
+  from{-webkit-transform:rotate(0deg);}
+  to{-webkit-transform:rotate(360deg);}
+}
+
+@-moz-keyframes spinnerRotate {
+  from{-moz-transform:rotate(0deg);}
+  to{-moz-transform:rotate(360deg);}
+}
+
+@-ms-keyframes spinnerRotate {
+  from{-ms-transform:rotate(0deg);}
+  to{-ms-transform:rotate(360deg);}
+}
+
+#spin{
+  -webkit-animation-name: spinnerRotate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spinnerRotate;
+  -moz-animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spinnerRotate;
+  -ms-animation-duration: 1s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
 }

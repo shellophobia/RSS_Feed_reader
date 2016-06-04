@@ -13,6 +13,13 @@ var RSSController = function(app) {
     res.render('./sortString');
   });
   
+  app.get('/refresh', function(req, res) {
+    RSSModel.fetchData(function(xml) {
+      res.set('Content-Type', 'text/xml');
+      res.send(xml);
+    });
+  });
+  
 }
 
 module.exports.controller = RSSController;

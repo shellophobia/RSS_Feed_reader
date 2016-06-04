@@ -5,6 +5,7 @@
     <title>RSS Feed Reader</title>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel= "stylesheet" href="rssFeed.css">
+    <script src="https://use.fontawesome.com/9cab1757b1.js"></script>
   </head>
   <body>
     <script>
@@ -12,10 +13,16 @@
     </script>
     <div class = "container">
       <h1 class="page-title">RSS Feed Reader</h1>
-      <section class="time-section">
-        <p class="datetime-content">ISO-8601 Time <span class="date-time"></span></p>
-        <p class="timer-content">Time spent by you <span class="timer">00:00</span></p>
-      </section>
+      <div class = "page-utils">
+        <section class="refresh">
+          <a href="javascript:void(0)" onclick="refreshFeed()">Refresh Feed</a>
+          <span><i id="spin" class="fa fa-refresh"></i> Fetching Feed</span>
+        </section>
+        <section class="time-section">
+          <p class="datetime-content">ISO-8601 Time <span class="date-time"></span></p>
+          <p class="timer-content">Time spent by you <span class="timer">00:00</span></p>
+        </section>
+      </div>
     </div>
     <script type = "text/javascript" src = "xmlParser.js"></script>
   </body>

@@ -20,12 +20,13 @@ function bindEvents() {
   }
 }
 
-function parseXML() {
+function parseXML(isXML) {
   // unescapes the xml string with html escape characters
-  var div = document.createElement('div');
-  div.innerHTML = xml;
-  xml = div.childNodes[0].nodeValue;
-
+  if (!isXML) {
+    var div = document.createElement('div');
+    div.innerHTML = xml;
+    xml = div.childNodes[0].nodeValue;
+  }
   // XML parser
   parser = new DOMParser();
   var xmlDoc = parser.parseFromString(xml, "application/xml");
@@ -134,6 +135,36 @@ function initializeFeeder() {
   parseXML(); // parse the xml content
   startTimer(); // start the timer for time spent on page
   bindEvents(); // bind the delegated event to show/hide
+}
+
+// method for refreshing feed
+function refreshFeed() {
+  
+  // makes an ajax request to server to fetch current data
+  var xmlHTTP = new XMLHttpRequest();
+  var url = "/refresh";
+  
+  var refresh = document.querySelector('.refresh');
+  refresh.setAttribute('class', 'refresh loading');
+  
+  xmlHTTP.onreadystatechange = function() {
+    if (xmlHTTP.readyState == 4 && xmlHTTP.status == 200) {
+      xml = xmlHTTP.response;
+      
+      // remove all previous posts
+      var container = document.querySelector('.container');
+      while (document.querySelector('.post-container')) {
+        container.removeChild(document.querySelector('.post-container'));
+      }
+      
+      // parse the xml
+      parseXML(true);
+      refresh.setAttribute('class', 'refresh');
+    } 
+  }
+  
+  xmlHTTP.open('GET', url, true);
+  xmlHTTP.send();
 }
 
 window.onload = initializeFeeder;
